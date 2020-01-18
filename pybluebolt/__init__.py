@@ -53,7 +53,7 @@ class PyBlueBOLT(object):
         LOG.debug(f"Authenticating BlueBOLT account {self._username} via {BB_AUTH_URL}")
 
         url = BB_AUTH_URL.format(**vars)
-        response = requests.post(url, headers=self._headers)
+        response = self._session.post(url, headers=self._headers)
             # Example response:
             # {"data":{"auth":true,"activated":true}}
 
@@ -102,7 +102,7 @@ class PyBlueBOLT(object):
         # reconnect, if disconnected
         if force_login and not self.is_connected:
             self.login()
-
+            
         loop = 0
         while loop <= retry:
 
@@ -151,7 +151,7 @@ class PyBlueBOLT(object):
         vars = {
             'site_id': location_id
         }
-        return self.query(BB_LOCATION_DETAILS_URL.format(**vars), method='GET')
+        return self.query(BB_LOCATION_DETAILS_URL.format(**vars), method='POST')
 
     
     def devices(self, location_id, use_cached=True):
@@ -159,7 +159,7 @@ class PyBlueBOLT(object):
         vars = {
             'site_id': location_id
         }
-        return self.query(BB_DEVICE_LIST_URL.format(**vars), method='GET')
+        return self.query(BB_DEVICE_LIST_URL.format(**vars), method='POST')
 
     def device(self, location_id, device_id):
         """Return details on a specific device"""
@@ -167,7 +167,7 @@ class PyBlueBOLT(object):
             'site_id': location_id,
             'device_id': device_id
         }
-        return self.query(BB_DEVICE_STATUS_URL.format(**vars), method='GET')
+        return self.query(BB_DEVICE_STATUS_URL.format(**vars), method='POST')
 
     def turn_outlet_on(self, device_id, outlet_num):
         url = f"{BB_V2_API_PREFIX}/devices/{device_id}"
