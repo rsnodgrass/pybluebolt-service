@@ -36,7 +36,7 @@ See also [example-client.py](example-client.py) for a working example.
 ## See Also
 
 * [MyBlueBOLT Portal](https://www.mybluebolt.com/)
-* [BlueBOLT local web service wrapper](https://github.com/Tenflare/bluebolt-api)
+* [BlueBOLT local device webservice proxy](https://github.com/Tenflare/bluebolt-api)
 
 ## Known Issues
 

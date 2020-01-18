@@ -32,32 +32,11 @@ def main():
  
     bluebolt = PyBlueBOLT(user, password)
 
-    print(f"User = #{bluebolt.user_id}")
-
-    print("\n--Data--")
-    pp.pprint( bluebolt.data() )
+    print(f"Connected? {bluebolt.is_connected}")
 
     print("\n--Locations--")
     locations = bluebolt.locations()
     pp.pprint( locations )
-
-    print("\n--Single Location--")
-    location_info = locations[0]
-    location_id = location_info['id']    
-    pp.pprint( bluebolt.location(location_id) )
-
-    for location in locations:
-        for device in location['devices']:
-            id = device['id']
-        
-            print("\n--Device in Locations--")
-            pp.pprint( device )
-            
-            print("\n--Consumption--")
-            pp.pprint( bluebolt.consumption(id) )
-
-            print("\n--Device Info--")
-            pp.pprint( bluebolt.device(id) )
 
 if __name__ == "__main__":
     main()
