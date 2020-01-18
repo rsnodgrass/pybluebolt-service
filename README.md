@@ -7,6 +7,7 @@ Python library for communicating with the [BlueBOLT Remote Energy Management clo
 
 NOTE:
 
+* Directly communicating with a local BlueBOLT device is almost always preferred to communicating with the cloud, as that status/changes can be instaneous and the integration can work even when offline without an Internet connection. However, there are some BlueBOLT configuration details that are only available in the cloud. This does not yet support direct interaction with a local BlueBOLT device (and may never, as that might be better as a separate package).
 * This library is community supported, please submit changes and improvements.
 * This is a very basic beta-quality interface that may need to be refactored in the future.
 

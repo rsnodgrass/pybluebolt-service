@@ -49,7 +49,16 @@ def main():
     for location in locations['records']:
         site_id = location['siteId']
         print(f"\n--Devices in Location {site_id}--")
-        pp.pprint( bluebolt.devices(site_id) )
+        devices = bluebolt.devices(site_id)
+        pp.pprint( devices )
+
+        for device in devices['devList']:
+            device_class = device['devClass']
+            device_id = device['devId']
+            
+            print(f"\nOutlet status for device {device_class} / {device_id}")
+            pp.pprint( bluebolt.device(device_class, device_id) )
+#            pp.pprint( bluebolt.outlets(device_id) )
     
 if __name__ == "__main__":
     main()

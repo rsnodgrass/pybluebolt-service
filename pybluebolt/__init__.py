@@ -170,13 +170,22 @@ class PyBlueBOLT(object):
         }
         return self.query(BB_DEVICE_LIST_URL.format(**vars), method='POST')
 
-    def device(self, location_id, device_id):
+    def device(self, device_class, device_id):
         """Return details on a specific device"""
         vars = {
-            'site_id': location_id,
+            'device_class': device_class,
             'device_id': device_id
         }
-        return self.query(BB_DEVICE_STATUS_URL.format(**vars), method='POST')
+        return self.query(BB_DEVICE_STATUS_URL.format(**vars), method='GET')
+
+    def outlets(self, device_id):
+        """Return outlet status for a device"""
+        vars = {
+#            'site_id': location_id,
+            'device_id': device_id
+        }
+        return self.query(BB_DEVICE_STATUS_URL.format(**vars), method='GET')
+
 
     def turn_outlet_on(self, device_id, outlet_num):
         url = f"{BB_V2_API_PREFIX}/devices/{device_id}"
