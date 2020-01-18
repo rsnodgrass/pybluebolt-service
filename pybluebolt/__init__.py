@@ -34,20 +34,29 @@ class PyBlueBOLT(object):
         self.clear_cache()
         
         self._username = username
-        self._password = password  # should we store this in memory...
-        self.login()
+        self.login(password)
 
     def __repr__(self):
         """Object representation."""
         return "<{0}: {1}>".format(self.__class__.__name__, self._username)
 
+    def save_password(self, password):
+        """Client can save password to enable automatic reauthentication"""
+        self._password = password
+    
     def login(self):
+        if self._password:
+            self.login(password)
+        else:
+            LOG.warning('No saved password; automatic reauthentication is not enabled')
+        
+    def login(self, password):
         """Login to the BlueBOLT account and generate access token"""
         self._reset_headers()
 
         vars = {
             'username': self._username,
-            'password': self._password
+            'password': password
         }
         
         LOG.debug(f"Authenticating BlueBOLT account {self._username} via {BB_AUTH_URL}")
