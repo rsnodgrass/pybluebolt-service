@@ -38,6 +38,7 @@ See also [example-client.py](example-client.py) for a working example.
 
 * [MyBlueBOLT Portal](https://www.mybluebolt.com/)
 * [BlueBOLT local device webservice proxy](https://github.com/Tenflare/bluebolt-api)
+* Home Assistant integration for BlueBOLT devices [hass-bluebolt]
 
 ## Known Issues
 

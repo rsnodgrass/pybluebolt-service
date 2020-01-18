@@ -10,5 +10,5 @@ BB_LOCATION_LIST_URL = BB_ENDPOINT + '/middleware/locations/dataSvc.php?svc=getS
 BB_LOCATION_DETAILS_URL = BB_ENDPOINT + '/data-svc/siteManagement/data-svc.php?siteId={site_id}&svc=settings'
 
 BB_DEVICE_LIST_URL = BB_ENDPOINT + '/data-svc/siteManagement/data-svc.php?siteId={site_id}&svc=devList&detailed=true&isCached=false'
-BB_DEVICE_STATUS_URL = BB_ENDPOINT + '/data-svc/cv1.deviceControls/data-svc.php?devClass={device_class}&devId={device_id}&svc=status'
-BB_OUTLET_STATUS_URL = BB_ENDPOINT + '/data-svc/siteManagement/data-svc.php?siteId={site_id}&svc=devList&detailed=true&isCached=false&withOutlets=true'
+BB_DEVICE_STATUS_URL = BB_ENDPOINT + '/data-svc/cv1.deviceControls/data-svc.php?siteId={site_id}&devClass={device_class}&devId={device_id}&svc=status'
+BB_OUTLETS_URL = BB_ENDPOINT + '/data-svc/cv1.deviceControls/data-svc.php?siteId={site_id}&devClass={device_class}&devId={device_id}&svc=labels'

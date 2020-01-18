@@ -11,7 +11,7 @@ from pybluebolt.const import (BLUEBOLT_USER_AGENT,
                               BB_LOCATION_DETAILS_URL,
                               BB_DEVICE_LIST_URL,
                               BB_DEVICE_STATUS_URL,
-                              BB_OUTLET_STATUS_URL)
+                              BB_OUTLETS_URL)
                               
 LOG = logging.getLogger(__name__)
 
@@ -127,7 +127,7 @@ class PyBlueBOLT(object):
             LOG.debug("Headers: %s", headers)
 
             loop += 1
-            LOG.debug("Querying %s on attempt: %s/%s", url, loop, retry)
+            LOG.debug("Querying %s %s on attempt: %s/%s", method, url, loop, retry)
 
             # define connection method
             request = None
@@ -170,22 +170,23 @@ class PyBlueBOLT(object):
         }
         return self.query(BB_DEVICE_LIST_URL.format(**vars), method='POST')
 
-    def device(self, device_class, device_id):
+    def device(self, site_id, device_class, device_id):
         """Return details on a specific device"""
         vars = {
+            'site_id': site_id, # required for authentication
             'device_class': device_class,
             'device_id': device_id
         }
         return self.query(BB_DEVICE_STATUS_URL.format(**vars), method='GET')
 
-    def outlets(self, device_id):
-        """Return outlet status for a device"""
+    def outlets(self, site_id, device_class, device_id):
+        """Return outlet labels for a device"""
         vars = {
-#            'site_id': location_id,
+            'site_id': site_id, # required for authentication
+            'device_class': device_class,
             'device_id': device_id
         }
-        return self.query(BB_DEVICE_STATUS_URL.format(**vars), method='GET')
-
+        return self.query(BB_OUTLETS_URL.format(**vars), method='GET')
 
     def turn_outlet_on(self, device_id, outlet_num):
         url = f"{BB_V2_API_PREFIX}/devices/{device_id}"

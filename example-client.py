@@ -57,8 +57,8 @@ def main():
             device_id = device['devId']
             
             print(f"\nOutlet status for device {device_class} / {device_id}")
-            pp.pprint( bluebolt.device(device_class, device_id) )
-#            pp.pprint( bluebolt.outlets(device_id) )
+            pp.pprint( bluebolt.device(site_id, device_class, device_id) )
+            pp.pprint( bluebolt.outlets(site_id, device_class, device_id) )
     
 if __name__ == "__main__":
     main()
