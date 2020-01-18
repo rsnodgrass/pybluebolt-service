@@ -33,7 +33,6 @@ class PyBlueBOLT(object):
         self._params = {}
         self.clear_cache()
         
-        self._auth_token = None
         self._username = username
         self._password = password  # should we store this in memory...
         self.login()
@@ -59,14 +58,17 @@ class PyBlueBOLT(object):
             # {"data":{"auth":true,"activated":true}}
 
         json_response = response.json()
-        #LOG.debug("BlueBOLT user %s authentication results %s : %s", self._username, BB_AUTH_URL, json_response)
-        
+        LOG.warning("BlueBOLT user %s authentication results %s : %s (%s)", self._username, BB_AUTH_URL, json_response, response.cookies['login'])
+
         if 'data' in json_response:
             # note: 'login' cookie contains credentials
             auth = json_response['data'].get('auth')
-            if auth and auth == 'true':
-                self._auth_token = 'FIXME'
-                self._auth_token_expiry = time.time() + 604800
+            if auth:
+                expires = None
+                for cookie in response.cookies:
+                    if cookie.name == 'login':
+                        expires = cookie.expires
+                self._session_expiry = expires
                 return # success
 
         LOG.error(f"Failed authenticating BlueBOLT user {self._username}")
@@ -74,7 +76,7 @@ class PyBlueBOLT(object):
     @property
     def is_connected(self):
         """Connection status of client with BlueBOLT cloud service."""
-        return bool(self._auth_token) and time.time() < self._auth_token_expiry
+        return time.time() < self._session_expiry
 
     def _reset_headers(self):
         """Reset the headers and params."""
