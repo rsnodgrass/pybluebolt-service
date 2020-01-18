@@ -9,6 +9,8 @@ BB_AUTH_URL = BB_ENDPOINT + '/data-svc/login_check_svc.php?svc=authenticateUser&
 BB_LOCATION_LIST_URL = BB_ENDPOINT + '/middleware/locations/dataSvc.php?svc=getSitesData&pageNo=1&recordsPerPage=18'
 BB_LOCATION_DETAILS_URL = BB_ENDPOINT + '/data-svc/siteManagement/data-svc.php?siteId={site_id}&svc=settings'
 
-BB_DEVICE_LIST_URL = BB_ENDPOINT + '/middleware/locations/dataSvc.php?siteId={site_id}&svc=getDeviceStatusDetails'
+BB_DEVICE_LIST_URL = BB_ENDPOINT + '/data-svc/siteManagement/data-svc.php?siteId=339730&svc=devList&detailed=true&isCached=true'
+
+
 BB_DEVICE_STATUS_URL = BB_ENDPOINT + '/data-svc/cv1.deviceControls/data-svc.php?siteId={site_id}&devClass=m4315&devId={device_id}&svc=status'
 BB_OUTLET_STATUS_URL = BB_ENDPOINT + '/data-svc/siteManagement/data-svc.php?siteId={site_id}&svc=devList&detailed=true&isCached=false&withOutlets=true'

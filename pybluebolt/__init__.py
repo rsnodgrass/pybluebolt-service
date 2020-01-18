@@ -49,7 +49,7 @@ class PyBlueBOLT(object):
             self.login(password)
         else:
             LOG.warning('No saved password; automatic reauthentication is not enabled')
-        
+
     def login(self, password):
         """Login to the BlueBOLT account and generate access token"""
         self._reset_headers()
@@ -67,7 +67,7 @@ class PyBlueBOLT(object):
             # {"data":{"auth":true,"activated":true}}
 
         json_response = response.json()
-        LOG.warning("BlueBOLT user %s authentication results %s : %s (%s)", self._username, BB_AUTH_URL, json_response, response.cookies['login'])
+#        LOG.debug("BlueBOLT user %s authentication results %s : %s (%s)", self._username, BB_AUTH_URL, json_response, response.cookies['login'])
 
         if 'data' in json_response:
             # note: 'login' cookie contains credentials
@@ -111,7 +111,7 @@ class PyBlueBOLT(object):
         # reconnect, if disconnected
         if force_login and not self.is_connected:
             self.login()
-            
+
         loop = 0
         while loop <= retry:
 
@@ -160,7 +160,7 @@ class PyBlueBOLT(object):
         vars = {
             'site_id': location_id
         }
-        return self.query(BB_LOCATION_DETAILS_URL.format(**vars), method='POST')
+        return self.query(BB_LOCATION_DETAILS_URL.format(**vars), method='GET')
 
     
     def devices(self, location_id, use_cached=True):
