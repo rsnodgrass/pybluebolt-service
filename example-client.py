@@ -38,7 +38,7 @@ def main():
     locations = bluebolt.locations()
     pp.pprint( locations )
 
-    print("\n--Single Location--")
+    print("\n--Location Info--")
     records = locations['records']
     location_info = records[0]
     if location_info:
@@ -47,7 +47,7 @@ def main():
         pp.pprint( bluebolt.location_details(site_id) )
     
     for location in locations['records']:
-        site_id = location_info['siteId']
+        site_id = location['siteId']
         print(f"\n--Devices in Location {site_id}--")
         pp.pprint( bluebolt.devices(site_id) )
     
