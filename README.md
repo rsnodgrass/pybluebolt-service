@@ -22,11 +22,12 @@ pip3 install pybluebolt
 ```python
 bluebolt = PyBlueBOLT(username, password)
 locations = bluebolt.locations
-
-home = locations[0]
 ```
 
-See also [example-client.py](example-client.py) for a working example.
+See also [example-client.py](example-client.py) for a more comprehensive working example.
+
+NOTE: This doesn't cache password credentials, so it does not re-authenticate automatically
+unless the client also calls `bluebolt.save_password(password)`.
 
 ## Supported Hardware
 
@@ -34,14 +35,14 @@ See also [example-client.py](example-client.py) for a working example.
 * [Panamax M4320-Pro 8 outlet](https://www.amazon.com/Panamax-M4320-Programmable-Power-Management/dp/B007I4GLQI?tag=rynoshark-20)
 * [Panamax M4000 8 outlet](https://www.amazon.com/Panamax-Outlet-BlueBOLT-Programmable-Management/dp/B00WK646I4?tag=rynoshark-20)
 
-## See Also
-
-* [MyBlueBOLT Portal](https://www.mybluebolt.com/)
-* [BlueBOLT local device webservice proxy](https://github.com/Tenflare/bluebolt-api)
-* Home Assistant integration for BlueBOLT devices [hass-bluebolt]
-
 ## Known Issues
 
 #### Unsupported
 
 * direct control of a BlueBOLT device via telnet or RS232 
+
+## See Also
+
+* [MyBlueBOLT Portal](https://www.mybluebolt.com/)
+* [BlueBOLT local device webservice proxy](https://github.com/Tenflare/bluebolt-api)
+* Home Assistant integration for BlueBOLT devices [hass-bluebolt]
