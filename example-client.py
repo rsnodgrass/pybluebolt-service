@@ -6,7 +6,7 @@ import pprint
 import logging
 import json
 
-from pybluebolt import PyBlueBOLT
+from pybluebolt-service import PyBlueBOLTService
 
 def setup_logger():
     logger = logging.getLogger()
@@ -30,7 +30,7 @@ def main():
     #setup_logger()
     pp = pprint.PrettyPrinter(indent = 2)
  
-    bluebolt = PyBlueBOLT(user, password)
+    bluebolt = PyBlueBOLTService(user, password)
 
     print(f"Connected? {bluebolt.is_connected}")
 

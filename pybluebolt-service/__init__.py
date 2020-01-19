@@ -19,8 +19,8 @@ METHOD_GET = 'GET'
 METHOD_PUT = 'PUT'
 METHOD_POST = 'POST'
 
-class PyBlueBOLT(object):
-    """Base object for BlueBOLT."""
+class PyBlueBOLTService(object):
+    """Base object for BlueBOLT cloud service access."""
 
     def __init__(self, username=None, password=None):
         """Create a PyBlueBOLT object.

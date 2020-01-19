@@ -11,12 +11,12 @@ if sys.argv[-1] == 'publish':
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(name='pybluebolt',
+setuptools.setup(name='pybluebolt-service',
       version='0.0.1',
-      packages=[ 'pybluebolt' ],
-      description='Python interface for BlueBOLT API',
+      packages=[ 'pybluebolt-service' ],
+      description='Python interface for BlueBOLT cloud service',
 #      long_description=long_description,
-      url='https://github.com/rsnodgrass/pybluebolt',
+      url='https://github.com/rsnodgrass/pybluebolt-service',
       author='Ryan Snodgrass',
       author_email='rsnodgrass@gmail.com',
       license='Apache Software License',

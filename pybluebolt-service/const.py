@@ -1,6 +1,6 @@
 """Constants used by PyBlueBOLT"""
 
-BLUEBOLT_USER_AGENT = 'PyBlueBOLT (https://github.com/rsnodgrass/pybluebolt/)'
+BLUEBOLT_USER_AGENT = 'PyBlueBOLT (https://github.com/rsnodgrass/pybluebolt-service/)'
 
 BB_ENDPOINT = 'https://www.mybluebolt.com'
 

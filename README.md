@@ -3,24 +3,23 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=WREP29UDAMB6G)
 
-Python library for communicating with the [BlueBOLT Remote Energy Management cloud](https://www.panamax.com/power-management/bluebolt-20-ip-power-management) for remotely controlling BlueBOLT devices. This does not currently support direct control of local BlueBOLT devices via RS232 or telnet.
+Python library for communicating with the [BlueBOLT Remote Energy Management cloud service](https://www.panamax.com/power-management/bluebolt-20-ip-power-management) for remotely controlling BlueBOLT devices. This does no support direct control of local BlueBOLT devices via RS232 or TCP (see pybluebelt).
 
 NOTE:
 
-* Directly communicating with a local BlueBOLT device is almost always preferred to communicating with the cloud, as that status/changes can be instaneous and the integration can work even when offline without an Internet connection. However, there are some BlueBOLT configuration details that are only available in the cloud. This does not yet support direct interaction with a local BlueBOLT device (and may never, as that might be better as a separate package).
 * This library is community supported, please submit changes and improvements.
 * This is a very basic beta-quality interface that may need to be refactored in the future.
 
 ## Installation
 
 ```
-pip3 install pybluebolt
+pip3 install pybluebolt-service
 ```
 
 ## Examples
 
 ```python
-bluebolt = PyBlueBOLT(username, password)
+bluebolt = PyBlueBOLTService(username, password)
 locations = bluebolt.locations
 ```
 
@@ -45,4 +44,5 @@ unless the client also calls `bluebolt.save_password(password)`.
 
 * [MyBlueBOLT Portal](https://www.mybluebolt.com/)
 * [BlueBOLT local device webservice proxy](https://github.com/Tenflare/bluebolt-api)
+* [pybluebolt]
 * Home Assistant integration for BlueBOLT devices [hass-bluebolt]
