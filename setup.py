@@ -11,9 +11,9 @@ if sys.argv[-1] == 'publish':
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-setuptools.setup(name='pybluebolt-service',
+setuptools.setup(name='pybluebolt_service',
       version='0.0.1',
-      packages=[ 'pybluebolt-service' ],
+      packages=[ 'pybluebolt_service' ],
       description='Python interface for BlueBOLT cloud service',
 #      long_description=long_description,
       url='https://github.com/rsnodgrass/pybluebolt-service',

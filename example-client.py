@@ -6,7 +6,7 @@ import pprint
 import logging
 import json
 
-from pybluebolt-service import PyBlueBOLTService
+from pybluebolt_service import PyBlueBOLTService
 
 def setup_logger():
     logger = logging.getLogger()
