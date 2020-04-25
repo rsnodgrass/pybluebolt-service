@@ -1,17 +1,17 @@
-"""Base Python Class file for BlueBOLT"""
+"""Base Python Class file for BlueBOLT Cloud Service API"""
 
 import json
 import time
 import logging
 import requests
 
-from pybluebolt.const import (BLUEBOLT_USER_AGENT,
-                              BB_AUTH_URL, 
-                              BB_LOCATION_LIST_URL,
-                              BB_LOCATION_DETAILS_URL,
-                              BB_DEVICE_LIST_URL,
-                              BB_DEVICE_STATUS_URL,
-                              BB_OUTLETS_URL)
+from pybluebolt_service.const import (BLUEBOLT_USER_AGENT,
+                                      BB_AUTH_URL, 
+                                      BB_LOCATION_LIST_URL,
+                                      BB_LOCATION_DETAILS_URL,
+                                      BB_DEVICE_LIST_URL,
+                                      BB_DEVICE_STATUS_URL,
+                                      BB_OUTLETS_URL)
                               
 LOG = logging.getLogger(__name__)
 
